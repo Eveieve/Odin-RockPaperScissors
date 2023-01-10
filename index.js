@@ -13,35 +13,42 @@ function computerChoice() {
   }
 }
 
-let playerChoice = prompt("Rock, paper, scissors!");
-
-function playRound(playerChoice, computerChoice) {
+function playRound() {
   let compSelection = computerChoice();
+
+  let playerChoice = prompt("Rock, paper, scissors!");
+
   if (playerChoice === "Rock")
     if (compSelection === "Rock") {
-      return "You: Rock\nComputer: Rock\nTie!";
+      console.log("You: Rock\nComputer: Rock\nTie!");
     } else if (compSelection === "Paper") {
-      return "You: Rock\nComputer: Paper\nYou lose!";
+      console.log("You: Rock\nComputer: Paper\nYou lose!");
     } else {
-      return "You: Rock\nComputer: Scissors.\nYou win!";
+      console.log("You: Rock\nComputer: Scissors.\nYou win!");
     }
 
   if (playerChoice === "Paper")
     if (compSelection === "Rock") {
-      return "You: Paper\nComputer: Rock\nYou win!";
+      console.log("You: Paper\nComputer: Rock\nYou win!");
     } else if (compSelection === "Paper") {
-      return "You:Paper\nComputer: Paper\nTie!";
+      console.log("You:Paper\nComputer: Paper\nTie!");
     } else {
-      return "You:Paper\nComputer: Scissors\nYou win!";
+      console.log("You:Paper\nComputer: Scissors\nYou win!");
     }
   if (playerChoice === "Scissors")
     if (compSelection === "Rock") {
-      return "You: Scissors\n Computer: Rock\nYou lose!";
+      console.log("You: Scissors\n Computer: Rock\nYou lose!");
     } else if (compSelection === "Paper") {
-      return "You: Scissors\n Computer: Paper\nYou Win!";
+      console.log("You: Scissors\n Computer: Paper\nYou Win!");
     } else {
-      return "You: Scissors\n Computer: Scissors\nTie!";
+      console.log("You: Scissors\n Computer: Scissors\nTie!");
     }
 }
 
-console.log(playRound(playerChoice, computerChoice));
+function game() {
+  for (let i = 0; i < 5; i++) {
+    playRound();
+  }
+}
+
+game();
