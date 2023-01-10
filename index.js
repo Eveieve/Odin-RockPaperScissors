@@ -2,9 +2,7 @@ function getRandomInt() {
   return Math.floor(Math.random() * 3);
 }
 
-
-
-function playRound() {
+function getComputerChoice() {
   if (getRandomInt() === 0) {
     return "Rock";
   } else if (getRandomInt() === 1) {
@@ -12,3 +10,4 @@ function playRound() {
   } else getRandomInt() === 2;
   return "Scissors";
 }
+//yay!
