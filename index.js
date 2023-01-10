@@ -3,83 +3,45 @@ function getRandomInt() {
 }
 
 function computerChoice() {
-  if (getRandomInt() === 0) {
+  let computer = getRandomInt();
+  if (computer === 0) {
     return "Rock";
-  } else if (getRandomInt() === 1) {
+  } else if (computer === 1) {
     return "Paper";
-  } else getRandomInt() === 2;
-  return "Scissors";
+  } else if (computer === 2) {
+    return "Scissors";
+  }
 }
 
 let playerChoice = prompt("Rock, paper, scissors!");
 
-/*function playerChoice() {
-    if (getPlayerChoice === "Rock") {
-      return 0;
-    } else if (getPlayerChoice === "Paper") {
-      return 1;
-    } else (getPlayerChoice === "Scissors");
-    return 2; 
-    } 
-*/
 function playRound(playerChoice, computerChoice) {
-  if (playerChoice == "rock")
-    if (computerChoice === "Rock") {
-      return "Tie!";
-    } else if (computerChoice === "Paper") {
-      return "You lose!";
+  let compSelection = computerChoice();
+  if (playerChoice === "Rock")
+    if (compSelection === "Rock") {
+      return "You: Rock\nComputer: Rock\nTie!";
+    } else if (compSelection === "Paper") {
+      return "You: Rock\nComputer: Paper\nYou lose!";
     } else {
-      return "You win!";
+      return "You: Rock\nComputer: Scissors.\nYou win!";
     }
 
-  if (playerChoice === "paper")
-    if (computerChoice === "Rock") {
-      return "You win!";
-    } else if (computerChoice === "Paper") {
-      return "Tie!";
+  if (playerChoice === "Paper")
+    if (compSelection === "Rock") {
+      return "You: Paper\nComputer: Rock\nYou win!";
+    } else if (compSelection === "Paper") {
+      return "You:Paper\nComputer: Paper\nTie!";
     } else {
-      return "You win!";
+      return "You:Paper\nComputer: Scissors\nYou win!";
     }
-  if (playerChoice === "scissors")
-    if (computerChoice === "Rock") {
-      return "You lose!";
-    } else if (computerChoice === "Paper") {
-      return "You Win!";
-    } else;
-  {
-    return "Tie!";
-  }
+  if (playerChoice === "Scissors")
+    if (compSelection === "Rock") {
+      return "You: Scissors\n Computer: Rock\nYou lose!";
+    } else if (compSelection === "Paper") {
+      return "You: Scissors\n Computer: Paper\nYou Win!";
+    } else {
+      return "You: Scissors\n Computer: Scissors\nTie!";
+    }
 }
 
-function game() {
-  for (let i = 0; i < 5; i++) {
-    function playRound(playerChoice, computerChoice) {
-      if (playerChoice == "rock")
-        if (computerChoice === "Rock") {
-          return "Tie!";
-        } else if (computerChoice === "Paper") {
-          return "You lose!";
-        } else {
-          return "You win!";
-        }
-
-      if (playerChoice === "paper")
-        if (computerChoice === "Rock") {
-          return "You win!";
-        } else if (computerChoice === "Paper") {
-          return "Tie!";
-        } else {
-          return "You win!";
-        }
-      if (playerChoice === "scissors")
-        if (computerChoice === "Rock") {
-          return "You lose!";
-        } else if (computerChoice === "Paper") {
-          return "You Win!";
-        } else;
-      {
-        return "Tie!";
-      }
-    }
-  }
-}
+console.log(playRound(playerChoice, computerChoice));
