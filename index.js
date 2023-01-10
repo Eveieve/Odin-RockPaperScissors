@@ -16,9 +16,9 @@ function computerChoice() {
 function playRound() {
   let compSelection = computerChoice();
 
-  let playerChoice = prompt("Rock, paper, scissors!");
+  let playerChoice = prompt("Rock, paper, scissors!").toUpperCase();
 
-  if (playerChoice === "Rock")
+  if (playerChoice === "ROCK")
     if (compSelection === "Rock") {
       console.log("You: Rock\nComputer: Rock\nTie!");
     } else if (compSelection === "Paper") {
@@ -27,7 +27,7 @@ function playRound() {
       console.log("You: Rock\nComputer: Scissors.\nYou win!");
     }
 
-  if (playerChoice === "Paper")
+  if (playerChoice == "PAPER")
     if (compSelection === "Rock") {
       console.log("You: Paper\nComputer: Rock\nYou win!");
     } else if (compSelection === "Paper") {
@@ -35,7 +35,7 @@ function playRound() {
     } else {
       console.log("You:Paper\nComputer: Scissors\nYou win!");
     }
-  if (playerChoice === "Scissors")
+  if (playerChoice == "SCISSORS")
     if (compSelection === "Rock") {
       console.log("You: Scissors\n Computer: Rock\nYou lose!");
     } else if (compSelection === "Paper") {
