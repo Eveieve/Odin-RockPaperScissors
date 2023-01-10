@@ -11,7 +11,7 @@ function computerChoice() {
   return "Scissors";
 }
 
-let playerChoice = prompt();
+let playerChoice = prompt("Rock, paper, scissors!");
 
 /*function playerChoice() {
     if (getPlayerChoice === "Rock") {
@@ -28,26 +28,58 @@ function playRound(playerChoice, computerChoice) {
       return "Tie!";
     } else if (computerChoice === "Paper") {
       return "You lose!";
-    } else computerChoice === "Scissors";
-  {
-    return "You win!";
-  }
+    } else {
+      return "You win!";
+    }
+
   if (playerChoice === "paper")
     if (computerChoice === "Rock") {
       return "You win!";
     } else if (computerChoice === "Paper") {
       return "Tie!";
-    } else computerChoice === "Scissors";
-  {
-    return "You win!";
-  }
+    } else {
+      return "You win!";
+    }
   if (playerChoice === "scissors")
     if (computerChoice === "Rock") {
       return "You lose!";
     } else if (computerChoice === "Paper") {
       return "You Win!";
-    } else computerChoice === "Scissors";
+    } else;
   {
     return "Tie!";
+  }
+}
+
+function game() {
+  for (let i = 0; i < 5; i++) {
+    function playRound(playerChoice, computerChoice) {
+      if (playerChoice == "rock")
+        if (computerChoice === "Rock") {
+          return "Tie!";
+        } else if (computerChoice === "Paper") {
+          return "You lose!";
+        } else {
+          return "You win!";
+        }
+
+      if (playerChoice === "paper")
+        if (computerChoice === "Rock") {
+          return "You win!";
+        } else if (computerChoice === "Paper") {
+          return "Tie!";
+        } else {
+          return "You win!";
+        }
+      if (playerChoice === "scissors")
+        if (computerChoice === "Rock") {
+          return "You lose!";
+        } else if (computerChoice === "Paper") {
+          return "You Win!";
+        } else;
+      {
+        return "Tie!";
+      }
+    }
   }
 }
