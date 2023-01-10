@@ -11,38 +11,40 @@ function getComputerChoice() {
   return "Scissors";
 }
 
-let getPlayerChoice = prompt();
+let playerChoice = prompt();
 
-function playerChoice() {
+
+/*function playerChoice() {
     if (getPlayerChoice === "Rock") {
       return 0;
     } else if (getPlayerChoice === "Paper") {
       return 1;
     } else (getPlayerChoice === "Scissors");
     return 2; 
-    }
-  
-
-/*
-if player is rock 
-    if computer is rock
-    return 'tie'
-if else computer is paper
-    return plalyer loses 
-    if computer is scissors
-    return player wins
-if player is paper 
-    if computer is rock
-    return player wins
-    if else computer is paper
-    return 'tie'
-    if else computer is scissors 
-    return player wins
-if player is scissors 
-    if computer is rock 
-    reutrn player loses
-    if computer is paper
-    return player wins
-    if computer is scissors 
-    return 'tie' 
+    } 
 */
+function playRound(playerChoice, computerChoice) {
+    if (playerChoice == "rock") 
+        if (computerChoice === "Rock") {
+        return "Tie!";
+         } else if (computerChoice === "Paper") {
+        return "You lose!";
+         } else (computerChoice === "Scissors") {
+        return "You win!";
+         }
+    if (playerChoice == "paper") 
+        if (computerChoice === "Rock") {
+    return "You win!";
+        } else if (computerChoice === "Paper") {
+    return "Tie!";
+        } else if (computerChoice === "Scissors" ) {
+        } return "You win!";
+if (playerChoice == "scissors")
+    if (computerChoice === "Rock") {
+    return "You lose!";
+    } else if(computerChoice === "Paper") {
+    return "You Win!";
+    } else if (computerChoice === "Scissors") {
+    return "Tie";
+    }
+}
