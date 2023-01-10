@@ -12,6 +12,7 @@ function computerChoice() {
     return "Scissors";
   }
 }
+let gameWin = 0;
 
 function playRound() {
   let compSelection = computerChoice();
@@ -25,6 +26,7 @@ function playRound() {
       console.log("You: Rock\nComputer: Paper\nYou lose!");
     } else {
       console.log("You: Rock\nComputer: Scissors.\nYou win!");
+      gameWin++;
     }
 
   if (playerChoice == "PAPER")
@@ -34,12 +36,14 @@ function playRound() {
       console.log("You:Paper\nComputer: Paper\nTie!");
     } else {
       console.log("You:Paper\nComputer: Scissors\nYou win!");
+      gameWin++;
     }
   if (playerChoice == "SCISSORS")
     if (compSelection === "Rock") {
       console.log("You: Scissors\n Computer: Rock\nYou lose!");
     } else if (compSelection === "Paper") {
       console.log("You: Scissors\n Computer: Paper\nYou Win!");
+      gameWin++;
     } else {
       console.log("You: Scissors\n Computer: Scissors\nTie!");
     }
@@ -48,6 +52,11 @@ function playRound() {
 function game() {
   for (let i = 0; i < 5; i++) {
     playRound();
+  }
+  if (gameWin > 2) {
+    console.log("You are a winner!");
+  } else {
+    console.log("You lose this round. Next Round?");
   }
 }
 
