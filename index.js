@@ -12,13 +12,31 @@ function computerChoice() {
     return "Scissors";
   }
 }
+function getPlayerChoice() {
+  if (btnRock) return "rock";
+  else if (btnPaper) return "paper";
+  else return "scissors";
+}
+
+//const btnRock = document.createElement("button");
+//const btnPaper = document.createElement("button");
+//const btnScissors = document.createElement("button");
+
+const btnRock = document.querySelector(".btnRock");
+const btnPaper = document.querySelector(".btnPaper");
+const btnScissors = document.querySelector(".btnScissors");
+
+btnRock.addEventListener("click", playRound);
+btnPaper.addEventListener("click", playRound);
+btnScissors.addEventListener("click", playRound);
 
 function playRound() {
   let compSelection = computerChoice();
 
-  let playerChoice = prompt("Rock, paper, scissors!").toLowerCase();
+  let playerSelection = getPlayerChoice();
+  //let playerChoice = prompt("Rock, paper, scissors!").toLowerCase();
 
-  if (playerChoice === "rock")
+  if (playerSelection === "rock")
     if (compSelection === "Rock") {
       console.log("You: Rock\nComputer: Rock\nTie!");
     } else if (compSelection === "Paper") {
@@ -27,7 +45,7 @@ function playRound() {
       console.log("You: Rock\nComputer: Scissors.\nYou win!");
     }
 
-  if (playerChoice == "paper")
+  if (playerSelection === "paper")
     if (compSelection === "Rock") {
       console.log("You: Paper\nComputer: Rock\nYou win!");
     } else if (compSelection === "Paper") {
@@ -35,7 +53,7 @@ function playRound() {
     } else {
       console.log("You:Paper\nComputer: Scissors\nYou win!");
     }
-  if (playerChoice == "scissors")
+  if (playerSelection === "scissors")
     if (compSelection === "Rock") {
       console.log("You: Scissors\n Computer: Rock\nYou lose!");
     } else if (compSelection === "Paper") {
@@ -45,4 +63,4 @@ function playRound() {
     }
 }
 
-game();
+//game();
