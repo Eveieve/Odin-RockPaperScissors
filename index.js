@@ -12,55 +12,60 @@ function computerChoice() {
     return "Scissors";
   }
 }
-function getPlayerChoice() {
-  if (btnRock) return "rock";
-  else if (btnPaper) return "paper";
-  else return "scissors";
-}
-
-//const btnRock = document.createElement("button");
-//const btnPaper = document.createElement("button");
-//const btnScissors = document.createElement("button");
 
 const btnRock = document.querySelector(".btnRock");
 const btnPaper = document.querySelector(".btnPaper");
 const btnScissors = document.querySelector(".btnScissors");
 
-btnRock.addEventListener("click", playRound);
-btnPaper.addEventListener("click", playRound);
-btnScissors.addEventListener("click", playRound);
+btnRock.addEventListener("click", () => {
+  playRound("Rock");
+});
 
-function playRound() {
+btnPaper.addEventListener("click", () => {
+  playRound("Paper");
+});
+
+btnScissors.addEventListener("click", () => {
+  playRound("Scissors");
+});
+
+function playRound(playerSelection) {
   let compSelection = computerChoice();
 
-  let playerSelection = getPlayerChoice();
-  //let playerChoice = prompt("Rock, paper, scissors!").toLowerCase();
+  //let playerSelection = getPlayerChoice();
 
-  if (playerSelection === "rock")
+  const win = document.createElement("div");
+  win.textContent = `You: ${playerSelection} Computer: ${compSelection} You win!`;
+
+  const lose = document.createElement("div");
+  lose.textContent = `You: ${playerSelection} Computer: ${compSelection} You lose!`;
+
+  const tie = document.createElement("div");
+  tie.textContent = `You: ${playerSelection} Computer: ${compSelection} Tie!`;
+
+  if (playerSelection === "Rock")
     if (compSelection === "Rock") {
-      console.log("You: Rock\nComputer: Rock\nTie!");
+      document.body.appendChild(tie);
     } else if (compSelection === "Paper") {
-      console.log("You: Rock\nComputer: Paper\nYou lose!");
+      document.body.appendChild(lose);
     } else {
-      console.log("You: Rock\nComputer: Scissors.\nYou win!");
+      document.body.appendChild(win);
     }
 
-  if (playerSelection === "paper")
+  if (playerSelection === "Paper")
     if (compSelection === "Rock") {
-      console.log("You: Paper\nComputer: Rock\nYou win!");
+      document.body.appendChild(win);
     } else if (compSelection === "Paper") {
-      console.log("You:Paper\nComputer: Paper\nTie!");
+      document.body.appendChild(tie);
     } else {
-      console.log("You:Paper\nComputer: Scissors\nYou win!");
+      document.body.appendChild(lose);
     }
-  if (playerSelection === "scissors")
+  if (playerSelection === "Scissors")
     if (compSelection === "Rock") {
-      console.log("You: Scissors\n Computer: Rock\nYou lose!");
+      document.body.appendChild(lose);
     } else if (compSelection === "Paper") {
-      console.log("You: Scissors\n Computer: Paper\nYou Win!");
+      document.body.appendChild(win);
     } else {
-      console.log("You: Scissors\n Computer: Scissors\nTie!");
+      document.body.appendChild(tie);
     }
 }
-
-//game();
