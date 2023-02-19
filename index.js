@@ -33,46 +33,39 @@ let gameLose = 0;
 function playRound(playerSelection) {
   let compSelection = computerChoice();
 
-  const win = document.createElement("div");
-  win.textContent = `You: ${playerSelection} Computer: ${compSelection} You win!`;
-
-  const lose = document.createElement("div");
-  lose.textContent = `You: ${playerSelection} Computer: ${compSelection} You lose!`;
-
-  const tie = document.createElement("div");
-  tie.textContent = `You: ${playerSelection} Computer: ${compSelection} Tie!`;
+  const results = document.querySelector(".results");
 
   if (playerSelection === "Rock")
     if (compSelection === "Rock") {
-      document.body.appendChild(tie);
+      results.textContent = `You: ${playerSelection} Computer: ${compSelection} Tie!`;
     } else if (compSelection === "Paper") {
-      document.body.appendChild(lose);
+      results.textContent = `You: ${playerSelection} Computer: ${compSelection} You lose!`;
       gameLose++;
     } else {
-      document.body.appendChild(win);
-
+      results.textContent = `You: ${playerSelection} Computer: ${compSelection} You win!`;
       gameWin++;
     }
 
   if (playerSelection === "Paper")
     if (compSelection === "Rock") {
-      document.body.appendChild(win);
+      results.textContent = `You: ${playerSelection} Computer: ${compSelection} You win!`;
       gameWin++;
     } else if (compSelection === "Paper") {
-      document.body.appendChild(tie);
+      results.textContent = `You: ${playerSelection} Computer: ${compSelection} Tie!`;
     } else {
-      document.body.appendChild(lose);
+      results.textContent = `You: ${playerSelection} Computer: ${compSelection} You lose!`;
       gameLose++;
     }
+
   if (playerSelection === "Scissors")
     if (compSelection === "Rock") {
-      document.body.appendChild(lose);
+      results.textContent = `You: ${playerSelection} Computer: ${compSelection} You lose!`;
       gameLose++;
     } else if (compSelection === "Paper") {
-      document.body.appendChild(win);
+      results.textContent = `You: ${playerSelection} Computer: ${compSelection} You win!`;
       gameWin++;
     } else {
-      document.body.appendChild(tie);
+      results.textContent = `You: ${playerSelection} Computer: ${compSelection} Tie!`;
     }
 
   let winScore = 0;
