@@ -87,16 +87,16 @@ function playRound(playerSelection) {
 
   const btns = document.querySelectorAll("button");
   const btnsArr = Array.from(btns);
-
+  const announce = document.querySelector(".announce");
   if (winScore >= 3 && loseScore <= 2) {
     btnsArr.forEach((button) => (button.disabled = true));
-    // score.textContent = `You ${winScore} Computer: ${loseScore}`;
-    score.textContent = "You are a winner!";
+    score.textContent = `You ${winScore} Computer: ${loseScore}`;
+    announce.textContent = "You are a winner!";
     return;
   } else if (loseScore >= 3 && winScore <= 2) {
     btnsArr.forEach((button) => (button.disabled = true));
-    // score.textContent = `You ${winScore} Computer: ${loseScore}`;
-    score.textContent = "You lose this round!";
+    score.textContent = `You ${winScore} Computer: ${loseScore}`;
+    announce.textContent = "You lose this round!";
     return;
   }
 }
