@@ -73,21 +73,15 @@ function playRound(playerSelection) {
   let loseScore = 0;
   loseScore += gameLose;
 
-  const score = document.createElement("div");
-  score.textContent = `You ${winScore} Computer: ${loseScore}`;
-  document.body.appendChild(score);
-
-  const winResults = document.createElement("div");
-  winResults.textContent = "You are a winner!";
-
-  const loseResults = document.createElement("div");
-  loseResults.textContent = "You lose this round!";
+  const score = document.querySelector(".score");
 
   if (winScore >= 5) {
-    document.body.appendChild(winResults);
+    score.textContent = `You ${winScore} Computer: ${loseScore}`;
+    score.textContent = "You are a winner!";
     return; //I want the game to end(disable any functions/buttons) when the winner is announced!!
   } else if (loseScore >= 5) {
-    document.body.appendChild(loseResults);
+    score.textContent = `You ${winScore} Computer: ${loseScore}`;
+    score.textContent = "You lose this round!";
     return;
   }
 }
