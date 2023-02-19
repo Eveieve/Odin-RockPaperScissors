@@ -75,11 +75,11 @@ function playRound(playerSelection) {
 
   const score = document.querySelector(".score");
 
-  if (winScore >= 5) {
+  if (winScore >= 3 && loseScore <= 2) {
     score.textContent = `You ${winScore} Computer: ${loseScore}`;
     score.textContent = "You are a winner!";
     return; //I want the game to end(disable any functions/buttons) when the winner is announced!!
-  } else if (loseScore >= 5) {
+  } else if (loseScore >= 3 && winScore <= 2) {
     score.textContent = `You ${winScore} Computer: ${loseScore}`;
     score.textContent = "You lose this round!";
     return;
