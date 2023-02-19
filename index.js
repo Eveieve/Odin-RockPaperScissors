@@ -35,56 +35,67 @@ function playRound(playerSelection) {
 
   const results = document.querySelector(".results");
 
-  if (playerSelection === "Rock")
-    if (compSelection === "Rock") {
-      results.textContent = `You: ${playerSelection} Computer: ${compSelection} Tie!`;
-    } else if (compSelection === "Paper") {
-      results.textContent = `You: ${playerSelection} Computer: ${compSelection} You lose!`;
-      gameLose++;
-    } else {
-      results.textContent = `You: ${playerSelection} Computer: ${compSelection} You win!`;
-      gameWin++;
-    }
-
-  if (playerSelection === "Paper")
-    if (compSelection === "Rock") {
-      results.textContent = `You: ${playerSelection} Computer: ${compSelection} You win!`;
-      gameWin++;
-    } else if (compSelection === "Paper") {
-      results.textContent = `You: ${playerSelection} Computer: ${compSelection} Tie!`;
-    } else {
-      results.textContent = `You: ${playerSelection} Computer: ${compSelection} You lose!`;
-      gameLose++;
-    }
-
-  if (playerSelection === "Scissors")
-    if (compSelection === "Rock") {
-      results.textContent = `You: ${playerSelection} Computer: ${compSelection} You lose!`;
-      gameLose++;
-    } else if (compSelection === "Paper") {
-      results.textContent = `You: ${playerSelection} Computer: ${compSelection} You win!`;
-      gameWin++;
-    } else {
-      results.textContent = `You: ${playerSelection} Computer: ${compSelection} Tie!`;
-    }
+  const score = document.querySelector(".score");
 
   let winScore = 0;
   winScore += gameWin;
   let loseScore = 0;
   loseScore += gameLose;
 
-  const score = document.querySelector(".score");
+  if (playerSelection === "Rock")
+    if (compSelection === "Rock") {
+      results.textContent = `You: ${playerSelection} Computer: ${compSelection} Tie!`;
+      score.textContent = `You ${winScore} Computer: ${loseScore}`;
+    } else if (compSelection === "Paper") {
+      results.textContent = `You: ${playerSelection} Computer: ${compSelection} You lose!`;
+
+      gameLose++;
+      score.textContent = `You ${winScore} Computer: ${loseScore}`;
+    } else {
+      results.textContent = `You: ${playerSelection} Computer: ${compSelection} You win!`;
+      gameWin++;
+      score.textContent = `You ${winScore} Computer: ${loseScore}`;
+    }
+
+  if (playerSelection === "Paper")
+    if (compSelection === "Rock") {
+      results.textContent = `You: ${playerSelection} Computer: ${compSelection} You win!`;
+      gameWin++;
+      score.textContent = `You ${winScore} Computer: ${loseScore}`;
+    } else if (compSelection === "Paper") {
+      results.textContent = `You: ${playerSelection} Computer: ${compSelection} Tie!`;
+      score.textContent = `You ${winScore} Computer: ${loseScore}`;
+    } else {
+      results.textContent = `You: ${playerSelection} Computer: ${compSelection} You lose!`;
+      gameLose++;
+      score.textContent = `You ${winScore} Computer: ${loseScore}`;
+    }
+
+  if (playerSelection === "Scissors")
+    if (compSelection === "Rock") {
+      results.textContent = `You: ${playerSelection} Computer: ${compSelection} You lose!`;
+      gameLose++;
+      score.textContent = `You ${winScore} Computer: ${loseScore}`;
+    } else if (compSelection === "Paper") {
+      results.textContent = `You: ${playerSelection} Computer: ${compSelection} You win!`;
+      gameWin++;
+      score.textContent = `You ${winScore} Computer: ${loseScore}`;
+    } else {
+      results.textContent = `You: ${playerSelection} Computer: ${compSelection} Tie!`;
+      score.textContent = `You ${winScore} Computer: ${loseScore}`;
+    }
+
   const btns = document.querySelectorAll("button");
   const btnsArr = Array.from(btns);
 
   if (winScore >= 3 && loseScore <= 2) {
     btnsArr.forEach((button) => (button.disabled = true));
-    score.textContent = `You ${winScore} Computer: ${loseScore}`;
+    // score.textContent = `You ${winScore} Computer: ${loseScore}`;
     score.textContent = "You are a winner!";
     return;
   } else if (loseScore >= 3 && winScore <= 2) {
     btnsArr.forEach((button) => (button.disabled = true));
-    score.textContent = `You ${winScore} Computer: ${loseScore}`;
+    // score.textContent = `You ${winScore} Computer: ${loseScore}`;
     score.textContent = "You lose this round!";
     return;
   }
