@@ -74,12 +74,16 @@ function playRound(playerSelection) {
   loseScore += gameLose;
 
   const score = document.querySelector(".score");
+  const btns = document.querySelectorAll("button");
+  const btnsArr = Array.from(btns);
 
   if (winScore >= 3 && loseScore <= 2) {
+    btnsArr.forEach((button) => (button.disabled = true));
     score.textContent = `You ${winScore} Computer: ${loseScore}`;
     score.textContent = "You are a winner!";
-    return; //I want the game to end(disable any functions/buttons) when the winner is announced!!
+    return;
   } else if (loseScore >= 3 && winScore <= 2) {
+    btnsArr.forEach((button) => (button.disabled = true));
     score.textContent = `You ${winScore} Computer: ${loseScore}`;
     score.textContent = "You lose this round!";
     return;
